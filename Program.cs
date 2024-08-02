@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
@@ -177,6 +178,35 @@ music.MapDelete("/{id}", async (HomeDb db, int id) =>
         }
         return Results.NotFound();
     });
+
+app.MapPost("/uploadfile", async (IFormFile file) =>
+{
+    var pathtoSave = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/uploads");
+
+    if (file.Length > 0)
+    {
+        //var filePath = Path.GetTempFileName();
+        var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+
+        var uniquefileName = Guid.NewGuid().ToString() + "_" + fileName;
+
+        var fullPath = Path.Combine(pathtoSave, uniquefileName);
+
+        using (var stream = new FileStream(fullPath, FileMode.Create))
+            {
+                file.CopyTo(stream);
+            }
+        
+        return Results.Ok(file.FileName);
+
+    }
+
+    else
+    {
+        return Results.BadRequest();
+    }
+
+});
 
 app.Run();
 

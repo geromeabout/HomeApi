@@ -100,3 +100,5 @@
 /home/gyrum/projects/HomeApi/obj/Release/net8.0/HomeApi.pdb
 /home/gyrum/projects/HomeApi/obj/Release/net8.0/HomeApi.genruntimeconfig.cache
 /home/gyrum/projects/HomeApi/obj/Release/net8.0/ref/HomeApi.dll
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/HomeApi.staticwebassets.runtime.json
+/home/gyrum/projects/HomeApi/obj/Release/net8.0/HomeApi.sourcelink.json
