@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.HomeApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.HomeApi.props",
+      "PackagePath": "build\\HomeApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.HomeApi.props",
+      "PackagePath": "buildMultiTargeting\\HomeApi.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.HomeApi.props",
+      "PackagePath": "buildTransitive\\HomeApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

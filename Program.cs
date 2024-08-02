@@ -26,6 +26,10 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 
 //app.UseHttpsRedirection();
 
+app.UseDefaultFiles();
+
+app.UseStaticFiles();
+
 var todos = app.MapGroup("/todos");
 
 todos.MapGet("/",async (HomeDb db) =>
