@@ -1,4 +1,6 @@
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +12,17 @@ builder.Services.AddDbContext<HomeDb>(opt => opt.UseMySql(cstring, ServerVersion
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddAntiforgery();
+
+//video
+builder.Services.Configure<FormOptions>(o =>
+{
+    o.ValueLengthLimit = int.MaxValue;
+    o.MultipartBodyLengthLimit = int.MaxValue;
+    o.MemoryBufferThreshold = int.MaxValue;
+});
+
 
 var app = builder.Build();
 
@@ -30,6 +43,8 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 app.UseDefaultFiles();
 
 app.UseStaticFiles();
+
+app.UseAntiforgery();
 
 var todos = app.MapGroup("/todos");
 
@@ -179,34 +194,38 @@ music.MapDelete("/{id}", async (HomeDb db, int id) =>
         return Results.NotFound();
     });
 
-app.MapPost("/uploadfile", async (IFormFile file) =>
-{
-    var pathtoSave = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/uploads");
+app.MapPost("/uploadfile", (IFormFile file) =>
+{   
 
-    if (file.Length > 0)
+    try
     {
-        //var filePath = Path.GetTempFileName();
-        var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+        var pathtoSave = Path.Combine(Directory.GetCurrentDirectory(),"wwwroot/Uploads");
 
-        var uniquefileName = Guid.NewGuid().ToString() + "_" + fileName;
+        if (file.Length > 0)
+        {
+            var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
 
-        var fullPath = Path.Combine(pathtoSave, uniquefileName);
+            var uniquefileName = Guid.NewGuid().ToString() + "_" + fileName;
 
-        using (var stream = new FileStream(fullPath, FileMode.Create))
-            {
-                file.CopyTo(stream);
-            }
-        
-        return Results.Ok(file.FileName);
+            var fullPath = Path.Combine(pathtoSave, uniquefileName);
 
+            using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+            return Results.Ok(file.FileName);
+        }
+
+        else
+        {
+            return Results.BadRequest();
+        }        
     }
-
-    else
+    catch (Exception ex)
     {
-        return Results.BadRequest();
+        return Results.Ok(ex.Message);
     }
-
-});
+}).DisableAntiforgery().WithFormOptions();
 
 app.Run();
 
