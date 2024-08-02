@@ -29,8 +29,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 var todos = app.MapGroup("/todos");
 
 todos.MapGet("/",async (HomeDb db) =>
-    await db.Todos.ToListAsync()
-);
+    await db.Todos.ToListAsync());
 
 todos.MapGet("/{id}",async (HomeDb db, int id) =>
     await db.Todos.FindAsync(id)
@@ -57,7 +56,7 @@ todos.MapPut("/{id}", async (int id, HomeDb db, Todo todo) =>
 {
     var entity = await db.Todos.FindAsync(id);
 
-    if (todo is null) return Results.NotFound();
+    if (entity is null) return Results.NotFound();
 
     entity.Name = todo.Name;
     entity.IsComplete = todo.IsComplete;
@@ -79,6 +78,101 @@ todos.MapDelete("/{id}", async (int id, HomeDb db) =>
     return Results.NotFound();
 });
 
+var movies = app.MapGroup("/movies");
+
+movies.MapGet("/", async (HomeDb db) =>
+    await db.Movies.ToListAsync()
+);
+
+movies.MapGet("/{id}", async (HomeDb db, int id) =>
+    await db.Movies.FindAsync(id)
+        is Movie movie
+            ?   Results.Ok(movie)
+            :   Results.NotFound()
+);
+
+movies.MapPost("/", async (HomeDb db, Movie movie) =>
+    {
+        db.Movies.Add(movie);
+        await db.SaveChangesAsync();
+    });
+
+movies.MapPut("/{id}", async (HomeDb db, int id, Movie movie) =>
+    {
+        var entity = await db.Movies.FindAsync(id);
+
+        if (entity is null) return Results.NotFound();
+
+        entity.Title = movie.Title;
+        entity.Description = movie.Description;
+        entity.ImageUrl = movie.ImageUrl;
+        entity.Artist = movie.Artist;
+        entity.Genre = movie.Genre;
+        entity.DateRelease = movie.DateRelease;
+
+        await db.SaveChangesAsync();
+
+        return Results.NoContent();
+    });
+
+movies.MapDelete("/{id}", async (HomeDb db, int id) =>
+    {
+        if (await db.Movies.FindAsync(id) is Movie movie)
+        {
+            db.Movies.Remove(movie);
+            await db.SaveChangesAsync();
+            return Results.NoContent();
+        }
+        return Results.NotFound();
+    });
+
+var music = app.MapGroup("/music");
+
+music.MapGet("/", async (HomeDb db) =>
+    await db.Music.ToListAsync()
+);
+
+music.MapGet("/{id}", async (HomeDb db, int id) =>
+    await db.Music.FindAsync(id)
+        is Music music
+            ?   Results.Ok(music)
+            :   Results.NotFound()
+);
+
+music.MapPost("/", async (HomeDb db, Music music) =>
+    {
+        db.Music.Add(music);
+        await db.SaveChangesAsync();
+    });
+
+music.MapPut("/{id}", async (HomeDb db, int id, Music music) =>
+    {
+        var entity = await db.Music.FindAsync(id);
+
+        if (entity is null) return Results.NotFound();
+
+        entity.Title = music.Title;
+        entity.Description = music.Description;
+        entity.ImageUrl = music.ImageUrl;
+        entity.Artist = music.Artist;
+        entity.Genre = music.Genre;
+        entity.DateRelease = music.DateRelease;
+
+        await db.SaveChangesAsync();
+
+        return Results.NoContent();
+    });
+
+music.MapDelete("/{id}", async (HomeDb db, int id) =>
+    {
+        if (await db.Music.FindAsync(id) is Music music)
+        {
+            db.Music.Remove(music);
+            await db.SaveChangesAsync();
+            return Results.NoContent();
+        }
+        return Results.NotFound();
+    });
 
 app.Run();
 
@@ -89,6 +183,8 @@ class HomeDb : DbContext
 
     }
     public DbSet<Todo> Todos {get;set;}
+    public DbSet<Music> Music { get; set; }
+    public DbSet<Movie> Movies { get; set; }
 }
 
 class Todo
@@ -105,6 +201,7 @@ class Movie
     public string Title { get; set; }
     public string Description { get; set; }
     public string Artist { get; set; }
+    public string ImageUrl { get; set; }
     public MovieGenre Genre { get; set; }
     public DateTime DateRelease { get; set; }
 }
@@ -126,6 +223,7 @@ class Music
     public string Title { get; set; }
     public string Description { get; set; }
     public string Artist { get; set; }
+    public string ImageUrl { get; set; }
     public MusicGenre Genre { get; set; }
     public DateTime DateRelease { get; set; }
 
