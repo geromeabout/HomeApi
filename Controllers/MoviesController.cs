@@ -1,4 +1,3 @@
-using System.Data.Common;
 using HomeApi.Data;
 using HomeApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -7,52 +6,50 @@ namespace HomeApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class TodosController : ControllerBase
+public class MoviesController : ControllerBase
 {
     public HomeDbContext _db;
-
-    public TodosController(HomeDbContext db)
+    public MoviesController(HomeDbContext db)
     {
         _db = db;
     }
     [HttpGet]
     public IActionResult Get()
     {
-        return Ok(_db.Todos.ToList());
+        return Ok(_db.Movies.ToList());
     }
     [HttpGet("{id}")]
     public IActionResult Get(int id)
     {
-        return Ok(_db.Todos.Find(id));
+        return Ok(_db.Movies.Find(id));
     }
     [HttpPost]
-    public IActionResult Post(Todo todo)
+    public IActionResult Post(Movie movie)
     {
-        _db.Todos.Add(todo);
+        _db.Movies.Add(movie);
         _db.SaveChanges();
         return Ok("Added.");
     }
     [HttpPut("{id}")]
-    public IActionResult Put(int id, Todo todo)
+    public IActionResult Put(Movie movie, int id)
     {
-        var entity = _db.Todos.Find(id);
+        var entity = _db.Movies.Find(id);
         if (entity is null) return NotFound();
 
-        entity.Name = todo.Name;
-        entity.IsComplete = todo.IsComplete;
-        entity.DateAdded = todo.DateAdded;
+        entity.Title = movie.Title;
+        entity.Actor = movie.Actor;
+        entity.Genre = movie.Genre;
 
         _db.SaveChanges();
-
         return Ok("Updated.");
     }
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        var entity = _db.Todos.Find(id);
+        var entity = _db.Movies.Find(id);
         if (entity is null) return NotFound();
 
-        _db.Todos.Remove(entity);
+        _db.Movies.Remove(entity);
         _db.SaveChanges();
 
         return Ok("Deleted.");

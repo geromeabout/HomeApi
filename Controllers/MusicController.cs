@@ -34,7 +34,7 @@ public class MusicController : ControllerBase
     public IActionResult Put(int id, Music music)
     {
         var entity = _db.Music.Find(id);
-        if (entity is null) return BadRequest();
+        if (entity is null) return NotFound();
 
         entity.Title = music.Title;
         entity.Artist = music.Artist;
@@ -46,7 +46,7 @@ public class MusicController : ControllerBase
     public IActionResult Delete(int id)
     {
         var entity = _db.Music.Find(id);
-        if (entity is null) return BadRequest();
+        if (entity is null) return NotFound();
 
         _db.Music.Remove(entity);
         _db.SaveChanges();
