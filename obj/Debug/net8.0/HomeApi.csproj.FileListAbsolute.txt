@@ -8,18 +8,13 @@
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.dll
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Abstractions.dll
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/Microsoft.EntityFrameworkCore.Relational.dll
-/home/gyrum/projects/HomeApi/bin/Debug/net8.0/Microsoft.OpenApi.dll
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/MySqlConnector.dll
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
-/home/gyrum/projects/HomeApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
-/home/gyrum/projects/HomeApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
-/home/gyrum/projects/HomeApi/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.csproj.AssemblyReference.cache
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.GeneratedMSBuildEditorConfig.editorconfig
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.AssemblyInfoInputs.cache
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.AssemblyInfo.cs
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.csproj.CoreCompileInputs.cache
-/home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.MvcApplicationPartsAssemblyInfo.cs
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.MvcApplicationPartsAssemblyInfo.cache
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/HomeApi.sourcelink.json
 /home/gyrum/projects/HomeApi/obj/Debug/net8.0/staticwebassets.build.json
@@ -103,3 +98,4 @@
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/gyrum/projects/HomeApi/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/home/gyrum/projects/HomeApi/bin/Debug/net8.0/HomeApi.staticwebassets.runtime.json

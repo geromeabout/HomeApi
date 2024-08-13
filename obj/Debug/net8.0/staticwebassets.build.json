@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "hkaF1lx9OiwgJt165LNvMhGZTFnFHJgJGBudpR4IIbA=",
+  "Hash": "sHKQklxj7bYqokBvyc1Iqzhe1SIjBLcOrKlxk7H4y+g=",
   "Source": "HomeApi",
   "BasePath": "_content/HomeApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "HomeApi/wwwroot",
+      "Source": "HomeApi",
+      "ContentRoot": "/home/gyrum/projects/HomeApi/wwwroot/",
+      "BasePath": "_content/HomeApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/gyrum/projects/HomeApi/wwwroot/index.html",
+      "SourceId": "HomeApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/gyrum/projects/HomeApi/wwwroot/",
+      "BasePath": "_content/HomeApi",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ]
 }
