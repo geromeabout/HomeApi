@@ -9,4 +9,5 @@ public class HomeDbContext : DbContext
     { 
     }
     public DbSet<Todo> Todos { get; set; }
+    public DbSet<Music> Music { get; set; }
 }
