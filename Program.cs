@@ -8,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+//cors
+builder.Services.AddCors(c => 
+     {
+        c.AddPolicy("AllowAll", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    });
+    
 //builder.Services.AddSwaggerGen();
 var pomelo = builder.Configuration.GetConnectionString("AppConn");
 builder.Services.AddDbContext<HomeDbContext>(opt => opt.UseMySql(pomelo, ServerVersion.AutoDetect(pomelo)));
@@ -20,6 +26,9 @@ if (app.Environment.IsDevelopment())
     //app.UseSwagger();
     //app.UseSwaggerUI();
 }
+
+//cors
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.UseHttpsRedirection();
 

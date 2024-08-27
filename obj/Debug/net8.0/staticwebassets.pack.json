@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
       "Id": "/home/gyrum/projects/HomeApi/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.HomeApi.Microsoft.AspNetCore.StaticWebAssets.props",
