@@ -80,7 +80,7 @@ function closeInput() {
 function _displayCount(itemCount) {
     const name = (itemCount === 1) ? 'to-do' : 'to-dos';
 
-    document.getElementById('counter').innerText = '${itemCount} ${name}';
+    document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }
 
 function _displayItems(data) {
