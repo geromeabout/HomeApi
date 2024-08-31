@@ -1,16 +1,36 @@
 {
   "Files": [
     {
-      "Id": "/home/gyrum/projects/HomeApi/wwwroot/css/site.css",
-      "PackagePath": "staticwebassets/css/site.css"
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/css/index.css",
+      "PackagePath": "staticwebassets/css/index.css"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/css/todo.css",
+      "PackagePath": "staticwebassets/css/todo.css"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/error.html",
+      "PackagePath": "staticwebassets/error.html"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/home.html",
+      "PackagePath": "staticwebassets/home.html"
     },
     {
       "Id": "/home/gyrum/projects/HomeApi/wwwroot/index.html",
       "PackagePath": "staticwebassets/index.html"
     },
     {
-      "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/site.js",
-      "PackagePath": "staticwebassets/js/site.js"
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/router.js",
+      "PackagePath": "staticwebassets/js/router.js"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/todo.js",
+      "PackagePath": "staticwebassets/js/todo.js"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/todo.html",
+      "PackagePath": "staticwebassets/todo.html"
     },
     {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.HomeApi.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -33,7 +33,7 @@ function addItem() {
 }
 
 function deleteItem(id) {
-    fetch('${uri}/${id}', {
+    fetch(`${uri}/${id}`, {
         method: 'DELETE'
     })
     .then(() => getItems())
@@ -57,7 +57,7 @@ function updateItem() {
         name: document.getElementById('edit-name').value.trim()
     };
 
-    fetch('${uri}/${id}', {
+    fetch(`${uri}/${item.id}`, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
