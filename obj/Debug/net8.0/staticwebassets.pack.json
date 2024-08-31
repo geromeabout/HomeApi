@@ -21,12 +21,28 @@
       "PackagePath": "staticwebassets/index.html"
     },
     {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/movies.js",
+      "PackagePath": "staticwebassets/js/movies.js"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/music.js",
+      "PackagePath": "staticwebassets/js/music.js"
+    },
+    {
       "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/router.js",
       "PackagePath": "staticwebassets/js/router.js"
     },
     {
       "Id": "/home/gyrum/projects/HomeApi/wwwroot/js/todo.js",
       "PackagePath": "staticwebassets/js/todo.js"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/movies.html",
+      "PackagePath": "staticwebassets/movies.html"
+    },
+    {
+      "Id": "/home/gyrum/projects/HomeApi/wwwroot/music.html",
+      "PackagePath": "staticwebassets/music.html"
     },
     {
       "Id": "/home/gyrum/projects/HomeApi/wwwroot/todo.html",
