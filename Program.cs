@@ -1,6 +1,6 @@
 using HomeApi.Data;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileProviders;
 
 //var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +26,12 @@ builder.Services.AddDbContext<HomeDbContext>(opt => opt.UseMySql(pomelo, ServerV
 
 var app = builder.Build();
 
+//forwarded headers
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+    {
+        ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+    });
+    
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -45,13 +51,6 @@ app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(
 app.UseDefaultFiles();
 
 app.UseStaticFiles();
-
-/*app.UseStaticFiles(new StaticFileOptions
-{
-    FileProvider = new PhysicalFileProvider(
-           Path.Combine(builder.Environment.WebRootPath, "ClientApp")),
-    RequestPath = "/ClientApp"
-}); */
 
 app.MapControllers();
 

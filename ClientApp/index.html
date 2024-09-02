@@ -7,13 +7,28 @@
     <title>Home API</title>
 </head>
 <body>
-    <nav class="nav">
-        <a href="/">Dashboard</a>
-        <a href="/todos">Todos</a>
-        <a href="/movies">Movies</a>
-        <a href="/music">Music</a>
-    </nav>
-    <div id="content"></div>
+    <nav>
+        <div class="navbar">
+          <div class="container nav-container">
+              <input class="checkbox" type="checkbox" name="" id="" />
+              <div class="hamburger-lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+              </div>  
+            <div class="logo">
+              <h1>about_home</h1>
+            </div>
+            <div class="menu-items">
+              <li><a href="/">Home</a></li>
+              <li><a href="/todos">Todos</a></li>
+              <li><a href="/movies">Movies</a></li>
+              <li><a href="/music">Songs</a></li>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <div class="content" id="content"></div>
     <script src="js/router.js"></script>
 </body>
 </html>

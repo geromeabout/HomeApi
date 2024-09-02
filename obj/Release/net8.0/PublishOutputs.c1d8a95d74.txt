@@ -1,0 +1,12 @@
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/appsettings.Development.json
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/appsettings.json
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi.dll
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi.runtimeconfig.json
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi.pdb
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/Microsoft.EntityFrameworkCore.dll
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/Microsoft.EntityFrameworkCore.Relational.dll
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/MySqlConnector.dll
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/Pomelo.EntityFrameworkCore.MySql.dll
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi.deps.json
