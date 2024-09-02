@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/movie.css" rel="stylesheet">
     <title>Movies</title>
 </head>
 <body>
     <h1>Movies</h1>
     <h3>Add</h3>
     <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
-        <input type="text" id="add-name" placeholder="New to-do">
+        <input type="text" id="add-title" placeholder="Title">
+        <input type="text" id="add-actor" placeholder="Actor">
+        <input type="text" id="add-genre" placeholder="Genre">
+        <input type="file" id="add-file">
         <input type="submit" value="Add">
     </form>
 
@@ -17,8 +21,9 @@
         <h3>Edit</h3>
         <form action="javascript:void(0);" onsubmit="updateItem()">
             <input type="hidden" id="edit-id">
-            <input type="checkbox" id="edit-isComplete">
-            <input type="text" id="edit-name">
+            <input type="text" id="edit-title">
+            <input type="text" id="edit-actor">
+            <input type="text" id="edit-genre">
             <input type="submit" value="Save">
             <a onclick="closeInput()" aria-label="Close">&#10006;</a>
         </form>
@@ -28,14 +33,15 @@
 
     <table>
         <tr>
-            <th>Is Complete?</th>
-            <th>Name</th>
+            <th>Title</th>
+            <th>Actor</th>
+            <th>Genre</th>
             <th></th>
             <th></th>
         </tr>
-        <tbody id="todos"></tbody>
+        <tbody id="movies"></tbody>
     </table>
-    <script src="js/todo.js" asp-append-version="true"></script>
+    <script src="js/movies.js" asp-append-version="true"></script>
     <script type="text/javascript">
         getItems();
     </script>

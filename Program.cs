@@ -1,7 +1,13 @@
 using HomeApi.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
-var builder = WebApplication.CreateBuilder(args);
+//var builder = WebApplication.CreateBuilder(args);
+
+//custom webrootpath
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions {
+    WebRootPath = "ClientApp"
+});
 
 // Add services to the container.
 
@@ -25,6 +31,8 @@ if (app.Environment.IsDevelopment())
 {
     //app.UseSwagger();
     //app.UseSwaggerUI();
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
 }
 
 //cors
@@ -37,6 +45,13 @@ app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader(
 app.UseDefaultFiles();
 
 app.UseStaticFiles();
+
+/*app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+           Path.Combine(builder.Environment.WebRootPath, "ClientApp")),
+    RequestPath = "/ClientApp"
+}); */
 
 app.MapControllers();
 
