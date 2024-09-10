@@ -19,7 +19,7 @@ public class UploadsController : ControllerBase
         {
             var file = Request.Form.Files[0];
             //var folderName = Path.Combine("Resources", "Uploads");
-            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/uploads");
+            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), "ClientApp/uploads");
             if (file.Length > 0)
             {
                 

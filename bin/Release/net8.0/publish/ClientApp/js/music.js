@@ -1,5 +1,5 @@
-const uri ='api/Todos';
-let todos = [];
+const uri ='api/Music';
+let songs = [];
 
 function getItems() {
     fetch(uri)
@@ -9,11 +9,14 @@ function getItems() {
 }
 
 function addItem() {
-    const addNameTextBox = document.getElementById('add-name');
+    const addTitleTextBox = document.getElementById('add-title');
+    const addArtistTextBox = document.getElementById('add-artist');
+    const addGenreTextBox = document.getElementById('add-genre');
 
     const item = {
-        isComplete: false,
-        name: addNameTextBox.value.trim()
+        title: addTitleTextBox.value.trim(),
+        artist: addArtistTextBox.value.trim(),
+        genre: addGenreTextBox.value.trim()
     };
 
     fetch(uri, {
@@ -27,7 +30,9 @@ function addItem() {
     .then(response => response.json())
     .then(() => {
         getItems();
-        addNameTextBox.value = '';
+        addTitleTextBox.value = '';
+        addArtistTextBox.value = '';
+        addGenreTextBox.value = '';
     })
     .catch(error => console.error('Unable to add item', error));
 }
@@ -43,9 +48,10 @@ function deleteItem(id) {
 function displayEditForm(id) {
     const item = todos.find(item => item.id == id);
 
-    document.getElementById('edit-name').value = item.name;
+    document.getElementById('edit-title').value = item.title;
     document.getElementById('edit-id').value = item.id;
-    document.getElementById('edit-isComplete').checked = item.isComplete;
+    document.getElementById('edit-artist').value = item.artist;
+    document.getElementById('edit-genre').value = item.genre;
     document.getElementById('editForm').style.display = 'block';
 }
 
@@ -53,8 +59,9 @@ function updateItem() {
     const itemId = document.getElementById('edit-id').value;
     const item = {
         id: parseInt(itemId, 10),
-        isComplete: document.getElementById('edit-isComplete').checked,
-        name: document.getElementById('edit-name').value.trim()
+        title: document.getElementById('edit-title').value.trim(),
+        artist: document.getElementById('edit-artist').value.trim(),
+        genre: document.getElementById('edit-genre').value.trim()
     };
 
     fetch(`${uri}/${item.id}`, {
@@ -78,13 +85,13 @@ function closeInput() {
 }
 
 function _displayCount(itemCount) {
-    const name = (itemCount === 1) ? 'to-do' : 'to-dos';
+    const name = (itemCount === 1) ? 'song' : 'songs';
 
     document.getElementById('counter').innerText = `${itemCount} ${name}`;
 }
 
 function _displayItems(data) {
-    const tBody = document.getElementById('todos');
+    const tBody = document.getElementById('songs');
     tBody.innerHTML = '';
 
     _displayCount(data.length);
@@ -108,18 +115,23 @@ function _displayItems(data) {
         let tr = tBody.insertRow();
         
         let td1 = tr.insertCell(0);
-        td1.appendChild(isCompleteCheckbox);
+        let titleNode = document.createTextNode(item.title);
+        td1.appendChild(titleNode);
     
         let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.name);
-        td2.appendChild(textNode);
-    
+        let artistNode = document.createTextNode(item.artist);
+        td2.appendChild(artistNode);
+
         let td3 = tr.insertCell(2);
-        td3.appendChild(editButton);
+        let genreNode = document.createTextNode(item.genre);
+        td3.appendChild(genreNode);
     
-        let td4 = tr.insertCell(3);
-        td4.appendChild(deleteButton);
+        let td4 = tr.insertCell(4);
+        td4.appendChild(editButton);
+    
+        let td5 = tr.insertCell(5);
+        td5.appendChild(deleteButton);
     });
 
-    todos = data;
+    songs = data;
 }

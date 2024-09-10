@@ -1,6 +1,16 @@
 /home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi
 /home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/appsettings.Development.json
 /home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/appsettings.json
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/css/site.css
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/error.html
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/index.html
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/js/music.js
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/js/router.js
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/js/services.js
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/pages/index.html
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/pages/movie.html
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/pages/music.html
+/home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/ClientApp/pages/todo.html
 /home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi.dll
 /home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi.runtimeconfig.json
 /home/gyrum/projects/HomeApi/bin/Release/net8.0/publish/HomeApi.pdb
